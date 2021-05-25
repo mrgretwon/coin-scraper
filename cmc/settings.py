@@ -12,6 +12,12 @@ BOT_NAME = 'cmc'
 SPIDER_MODULES = ['cmc.spiders']
 NEWSPIDER_MODULE = 'cmc.spiders'
 
+DATABASE_HOST = 'localhost'
+DATABASE_USER = 'admin'
+DATABASE_PASSWORD = 'TNTSucks!'
+DATABASE_NAME = 'db'
+DATABASE_PORT = '2137'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'cmc (+http://www.yourdomain.com)'
@@ -62,9 +68,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'cmc.pipelines.CmcPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'cmc.pipelines.DatabasePipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

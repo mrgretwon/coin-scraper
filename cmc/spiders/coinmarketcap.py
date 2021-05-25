@@ -8,9 +8,10 @@ class CMCSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for coin in response.xpath('(//table[contains(@class, "cmc-table")]/tbody/tr/td)[3]'):
-            yield {
-                'name': coin.xpath('(//p[text()])[1]').get(),
-                'ticker': coin.xpath('(//p[text()])[1]').get(),
-                'link': coin.css('a::attr("href")').get(),
-            }
+        # for coin in response.xpath('(//table[contains(@class, "cmc-table")]/tbody/tr/td)[3]'):
+        #     yield {
+        #         'name': coin.xpath('(//p[text()])[1]').get(),
+        #         'ticker': coin.xpath('(//p[text()])[1]').get(),
+        #         'link': coin.css('a::attr("href")').get(),
+        #     }
+        yield {'name': "Tak"}
