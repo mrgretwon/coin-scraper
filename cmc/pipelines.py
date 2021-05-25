@@ -19,6 +19,9 @@ class DatabasePipeline(object):
         self.connection.close()
 
     def process_item(self, item, spider):
-        self.cur.execute('INSERT INTO twoja_stara(name) VALUES (%s)', (item['name'],))
-        self.connection.commit()
-        return item
+        try:
+            self.cur.execute('INSERT INTO coins(name, ticker, link) VALUES (%s, %s, %s)', (item['name'], item['ticker'], item['link']))
+            self.connection.commit()
+            return item
+        except Exception:
+            pass
